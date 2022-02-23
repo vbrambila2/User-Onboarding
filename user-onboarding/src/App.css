@@ -36,3 +36,24 @@
     transform: rotate(360deg);
   }
 }
+
+label{
+  float: right;
+  clear: right;
+  width: 250px;
+  text-align: right;
+  padding: 0.5em;
+}
+
+input {
+float: right;
+margin-left: 0.5em;
+}
+
+.submit-button {
+  padding: 0.3em;
+}
+
+.submit-button:hover {
+  cursor: pointer;
+}

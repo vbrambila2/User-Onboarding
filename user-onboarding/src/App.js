@@ -3,7 +3,14 @@ import Form from './components/Form';
 import Person from './components/Person';
 import schema from './validation/formSchema';
 import * as yup from 'yup';
+import axios from 'axios';
+import styled from 'styled-components';
 import './App.css';
+
+const StyledApp = styled.div
+`
+  background-color: lightgrey;
+`
 
 const initialFormValues = {
   name: "",
@@ -38,6 +45,15 @@ function App() {
     setFormValues({ ...formValues, [name]: value })
   }
 
+  const postNewPerson = newPerson => {
+    axios.post(`https://reqres.in/api/users`, newPerson)
+      .then(res => {
+        setPerson(person.concat(newPerson));
+        setFormValues(initialFormValues);
+      })
+      .catch(err => console.error(err))
+  }
+
   const submit = () => {
     const newPerson = {
       name: formValues.name.trim(),
@@ -46,15 +62,13 @@ function App() {
       terms: ['accept', 'decline'].filter(term => !!formValues[term])
     }
 
-    console.log(newPerson, "new");
-
-    setPerson(person.concat(newPerson));
-    setFormValues(initialFormValues);
+    postNewPerson(newPerson);
+    
   }
 
   return (
-    <div>
-      <div>Hello</div>
+    <StyledApp>
+      <div>Form Validation</div>
         <Form
           values={formValues}
           change={inputChange}
@@ -73,7 +87,7 @@ function App() {
           )
         })
       }
-    </div>
+    </StyledApp>
   )
 }
 

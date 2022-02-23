@@ -1,4 +1,17 @@
 import React from 'react';
+import styled from 'styled-components';
+import '../App.css';
+
+const StyledForm = styled.div
+`
+background-color: white;
+border: solid 0.2em black;
+border-radius: 0.5em;
+margin: 1em;
+padding:1em;
+display: flex;
+justify-content: center;
+`
 
 export default function Form(props) {
     const { values, change, submit, errors } = props;
@@ -15,33 +28,33 @@ export default function Form(props) {
     }
 
     return (
-        <div>
+        <StyledForm>
             <form onSubmit={onSubmit} >
-                <label>Name { errors.name }
-                <input 
-                    type="text"
-                    name="name"
-                    value={values.name} 
-                    onChange={onChange}
-                />
+                <label>Name: { errors.name }
+                    <input 
+                        type="text"
+                        name="name"
+                        value={values.name} 
+                        onChange={onChange}
+                    />
                 </label>
-                <label>Email { errors.email }
-                <input 
-                    type="email"
-                    name="email"
-                    value={values.email} 
-                    onChange={onChange}
-                />
+                <label>Email: { errors.email }
+                    <input 
+                        type="email"
+                        name="email"
+                        value={values.email} 
+                        onChange={onChange}
+                    />
                 </label>
-                <label>Password { errors.password }
-                <input 
-                    type="password"
-                    name="password"
-                    value={values.password} 
-                    onChange={onChange}
-                />
+                <label>Password: { errors.password }
+                    <input 
+                        type="password"
+                        name="password"
+                        value={values.password} 
+                        onChange={onChange}
+                    />
                 </label>
-                <label>Accept
+                <label>Accept Terms and Conditions:
                     <input 
                         type="checkbox"
                         name="accept"
@@ -49,7 +62,7 @@ export default function Form(props) {
                         onChange={onChange}
                     />
                 </label>
-                <label>Decline
+                <label>Decline Terms and Conditions:
                     <input 
                         type="checkbox"
                         name="decline"
@@ -58,9 +71,9 @@ export default function Form(props) {
                     />
                 </label>
                 <div>
-                    <button>Submit</button>
+                    <button className='submit-button'>Submit</button>
                 </div>
             </form>
-        </div>
+        </StyledForm>
     )
 }
