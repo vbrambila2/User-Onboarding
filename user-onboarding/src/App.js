@@ -68,7 +68,7 @@ function App() {
               key={per.name}
               name={per.name} 
               email={per.email}
-              terms={per.accept}
+              terms={per.terms}
             />
           )
         })
