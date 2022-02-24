@@ -57,7 +57,7 @@ export default function Form(props) {
                 <label>Accept Terms and Conditions:
                     <input 
                         type="checkbox"
-                        name="accept"
+                        name="accepted"
                         checked={values.accept}
                         onChange={onChange}
                     />
@@ -65,7 +65,7 @@ export default function Form(props) {
                 <label>Decline Terms and Conditions:
                     <input 
                         type="checkbox"
-                        name="decline"
+                        name="declined"
                         checked={values.decline}
                         onChange={onChange}
                     />

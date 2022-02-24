@@ -10,14 +10,17 @@ import './App.css';
 const StyledApp = styled.div
 `
   background-color: lightgrey;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `
 
 const initialFormValues = {
   name: "",
   email: "",
   password: "",
-  accept: false,
-  decline: false
+  accepted: false,
+  declined: false
 }
 
 const initialFormErrors = {
@@ -59,7 +62,7 @@ function App() {
       name: formValues.name.trim(),
       email: formValues.email.trim(),
       password: formValues.password.trim(),
-      terms: ['accept', 'decline'].filter(term => !!formValues[term])
+      terms: ['accepted', 'declined'].filter(term => !!formValues[term])
     }
 
     postNewPerson(newPerson);
@@ -68,7 +71,7 @@ function App() {
 
   return (
     <StyledApp>
-      <div>Form Validation</div>
+      <h1>Form Validation</h1>
         <Form
           values={formValues}
           change={inputChange}
