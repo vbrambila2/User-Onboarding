@@ -71,7 +71,7 @@ export default function Form(props) {
                     />
                 </label>
                 <div>
-                    <button className='submit-button'>Submit</button>
+                    <button id="submitBtn" className='submit-button'>Submit</button>
                 </div>
             </form>
         </StyledForm>
