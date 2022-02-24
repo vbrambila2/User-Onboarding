@@ -26,7 +26,7 @@ const initialFormValues = {
 const initialFormErrors = {
   name: "",
   email: "",
-  password: "",
+  password: ""
 }
 
 const initialPerson = []
@@ -50,7 +50,7 @@ function App() {
 
   const postNewPerson = newPerson => {
     axios.post(`https://reqres.in/api/users`, newPerson)
-      .then(res => {
+      .then(() => {
         setPerson(person.concat(newPerson));
         setFormValues(initialFormValues);
       })
